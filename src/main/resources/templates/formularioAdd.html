@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Agregar un nuevo Estudiante</title>
+		<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	</head>
+	<body>
+		<h2>Agregar un nuevo Estudiante</h2>
+		<br>
+	    <form action="#" th:action="@{/agregar}" th:object="${listaEstudiante}" method="post">
+	        <div>
+	            <label for="nombre">Nombre:</label>
+	            <input type="text" th:field="*{nombre}" id="nombre">
+	            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error al poner el Nombre</span>
+	        </div>
+	        <br>
+	        <div>
+	            <label for="edad">Edad:</label>
+	            <input type="number" th:field="*{edad}" id="edad">
+	            <span th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}">Error al poner la Edad</span>
+	        </div>
+	        <br>
+	        <div>
+	            <label for="curso">Curso:</label>
+	            <input type="text" th:field="*{curso}" id="curso">
+	            <span th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}">Error al poner el Curso</span>
+	        </div>
+	        <br>
+	        <div>
+	            <button type="submit">Agregar</button>
+	        </div>
+	    </form>
+	</body>
+</html>

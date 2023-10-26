@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Gestor de estudiantes</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="CSS/style.css">
+	</head>
+	<body>
+		<h1>Gestion de estudiantes</h1>
+		
+		<!-- Contenedor con la lista de estudiantes -->
+		<h2>Listado de todos los estudiantes</h2>
+		<!-- Verificacion si la lista esta vacia -->
+		<div th:if="${listaEstudiantes != null and not #lists.isEmpty(listaEstudiantes)}" class="container">
+			<table>
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Edad</th>
+						<th>Curso</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="e : ${listaEstudiantes}">
+						<td th:text="${e.nombre}">Nombre</td>
+						<td th:text="${e.edad}">Edad</td>
+						<td th:text="${e.curso}">Curso</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div th:if="${promedioEdad != null}">
+			<h3>Promedio de la edad de los estudiantes</h3>
+			<p th:text="${promedioEdad}">
+		</div>
+		
+		<h2>Buscar Estudiantes</h2>
+		
+		<h3>Por Nombre:</h3>
+		<div th:replace="~{fragments :: buscador}"></div>
+			
+		<h3>Por Curso:</h3>
+		<div th:replace="~{fragments :: filtrar}"></div>
+		
+		<br>
+		
+		<div>
+			 <a th:href="@{/agregar}" role="button" class="boton-estilo">Agregar Estudiante</a>
+		</div>
+		
+		
+	</body>
+</html>

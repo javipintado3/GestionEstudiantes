@@ -1,0 +1,19 @@
+<!-- Fragmentos que sirve para separar funcionalidades para poder separar componentes -->
+
+<!-- Buscador por nombre -->
+<div th:fragment="buscador">
+	<form method="get" action="/buscar">
+		<label for="nombre">Nombre:</label>
+		<input type="text" id="nombre" name="nombre" required>
+		<button type="submit">Buscar</button>
+	</form>
+</div>
+
+<!-- Filtrador por el curso -->
+<div th:fragment="filtrar">
+	<form method="get" action="/filtrar">
+		<label for="curso">Curso:</label>
+		<input type="text" id="curso" name="curso" required>
+		<button type="submit">Filtrar</button>
+	</form>
+</div>
